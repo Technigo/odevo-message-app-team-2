@@ -1,4 +1,8 @@
-export const PostMessage = () => {
+import { useState } from "react"
+
+export const PostMessage = ({onPostSuccess}) => {
+
+  const [message, setMessage] = useState("")
 
   const handleFormSubmit = (event) => {
     event.preventDefault()
@@ -12,6 +16,7 @@ export const PostMessage = () => {
         <textarea
           rows="3"
           placeholder="Write your message here..."
+          onChange={(event) => setMessage(event.target.value)}
         />
         <button
           type="submit"
